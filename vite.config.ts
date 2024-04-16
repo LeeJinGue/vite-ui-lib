@@ -6,6 +6,7 @@ import dts from "vite-plugin-dts";
 import { fileURLToPath } from "node:url";
 import { glob } from "glob";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,6 +14,7 @@ export default defineConfig({
         react(),
         vanillaExtractPlugin(),
         // libInjectCss(),
+        tsconfigPaths(),
         dts({ include: ["lib"] }),
     ],
     build: {
