@@ -1,8 +1,34 @@
-import { style } from "@vanilla-extract/css";
+import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
+import { vars } from "@theme";
 
-export const button = style({
-    padding: 10,
+export const button = recipe({
+    base: {
+        padding: "2px",
+        ...vars.typography.Display_1,
+    },
+    variants: {
+        size: {
+            sm: {
+                width: "50px",
+            },
+            md: {
+                width: "100px",
+            },
+            lg: {
+                width: "200px",
+            },
+        },
+        full: {
+            true: {
+                width: "100%",
+            },
+        },
+    },
+    defaultVariants: {
+        size: "md",
+    },
 });
+export type ButtonVariants = RecipeVariants<typeof button>;
 
 // import { recipe } from "@vanilla-extract/recipes";
 
